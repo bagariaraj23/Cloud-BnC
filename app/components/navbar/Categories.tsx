@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import Container from "../Container";
 import { MdPedalBike } from "react-icons/md";
