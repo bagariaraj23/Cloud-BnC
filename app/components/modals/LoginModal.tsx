@@ -1,8 +1,8 @@
 "use client";
 
-import { signIn } from "next-auth/react";  
+import { signIn } from "next-auth/react";
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
+import { FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -34,24 +34,23 @@ const LoginModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-    
-    signIn('credentials', {
+
+    signIn("credentials", {
       ...data,
       redirect: false,
-    })
-    .then((callback) => {
+    }).then((callback) => {
       setIsLoading(false);
 
-      if(callback?.ok) {
+      if (callback?.ok) {
         toast.success("Login Successful");
         router.refresh();
         loginModal.onClose();
       }
 
-      if(callback?.error){
+      if (callback?.error) {
         toast.error(callback?.error);
       }
-    })
+    });
   };
 
   const bodyContent = (
@@ -85,24 +84,25 @@ const LoginModal = () => {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
-      outline
+        outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn('google')}
       />
       <Button
         outline
-        label="Continue with Github"
-        icon={AiFillGithub}
-        onClick={() => {}}
+        label="Continue with Twitter"
+        icon={FaTwitter}
+        onClick={() => signIn('twitter')}
       />
 
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="justify-center flex flex-row items-center gap-2">
           <div>Don&apos;t have an Account?</div>
           <div
-          onClick={registerModal.onClose} 
-          className="text-neutral-800 cursor-pointer hover:underline">
+            onClick={registerModal.onClose}
+            className="text-neutral-800 cursor-pointer hover:underline"
+          >
             Sign Up
           </div>
         </div>

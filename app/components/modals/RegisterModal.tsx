@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
+import { FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -82,24 +83,25 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
-      outline
+        outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn('google')}
       />
       <Button
         outline
-        label="Continue with Github"
-        icon={AiFillGithub}
-        onClick={() => {}}
+        label="Continue with Twitter"
+        icon={FaTwitter}
+        onClick={() => signIn('twitter')}
       />
 
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="justify-center flex flex-row items-center gap-2">
           <div>Already have an Account?</div>
           <div
-          onClick={registerModal.onClose} 
-          className="text-neutral-800 cursor-pointer hover:underline">
+            onClick={registerModal.onClose}
+            className="text-neutral-800 cursor-pointer hover:underline"
+          >
             Login
           </div>
         </div>
