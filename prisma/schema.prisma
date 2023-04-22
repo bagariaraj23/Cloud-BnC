@@ -49,27 +49,42 @@ model Account {
 model Listing {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
   title          String
-  description   String
-  imageSrc       String
+  description    String
+  // bodyImageSrc   String
+  imagesSrc      String[]
+  docImagesSrc   String[]
+  insImagesSrc   String[]
+  polImagesSrc   String[]
   createdAt      DateTime @default(now())
   category       String
-  vehicleType    String
+  vehicleType    String?
   passengerCount Int
   userId         String   @db.ObjectId
-  price          Int
+  // price          Int
+  pricePerHour   Int?
+  pricePerDay    Int?
+  pricePerWeek   Int?
+  make           String?
+  model          String?
+  year           Int?
+  color          String?
+  location       String
 
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
 
-  // // listing model for bike and car rentals
-  // // bike
+  // // listing model for bike rentals
   // bikeType String?
+  // bikeMake String?
+  // bikeModel String?
+  // bikeYear Int?
   // bikeSize String?
   // bikeColor String?
   // bikePricePerDay Int?
   // bikePricePerWeek Int?
   // bikePricePerMonth Int?
-  // // car
+
+  // // listing model for car rentals
   // carMake String?
   // carModel String?
   // carYear Int?
@@ -77,6 +92,25 @@ model Listing {
   // carPricePerDay Int?
   // carPricePerWeek Int?
   // carPricePerMonth Int?
+
+  // // listing model for trucks rentals
+  // truckMake String?
+  // truckModel String?
+  // truckYear Int?
+  // truckType String?
+  // truckSize String?
+  // truckColor String?
+  // truckPricePerDay Int?
+  // truckPricePerWeek Int?
+  // truckPricePerMonth Int?
+
+  // // listing model for bycycle rentals
+  // bikeType String?
+  // bikeSize String?
+  // bikeColor String?
+  // bikePricePerDay Int?
+  // bikePricePerWeek Int?
+  // bikePricePerMonth Int?
 }
 
 model Reservation {
