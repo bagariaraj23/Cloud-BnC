@@ -119,6 +119,9 @@ model Reservation {
   listingId  String   @db.ObjectId
   startDate  DateTime
   endDate    DateTime
+  totalHours Int?
+  totalDays  Int?
+  totalWeeks Int?
   totalPrice Int
   createdAt  DateTime @default(now())
 
