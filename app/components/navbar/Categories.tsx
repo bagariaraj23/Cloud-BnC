@@ -12,7 +12,7 @@ export const categories = [
   {
     label: "Car",
     icon: AiTwotoneCar,
-    description: "This is an electrical scooter",
+    description: "This is a car",
   },
   {
     label: "Motorcycle",
