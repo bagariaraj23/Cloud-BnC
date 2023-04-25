@@ -29,6 +29,7 @@ export default async function getListings(params: IListingsParams) {
     if(category){
       query.category = category;
     }
+    
     if(passengerCount){
       query.passengerCount = {
         gte: +passengerCount,
