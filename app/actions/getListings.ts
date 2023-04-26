@@ -25,11 +25,11 @@ export default async function getListings(params: IListingsParams) {
     if (userId) {
       query.userId = userId;
     }
-
+    
     if(category){
       query.category = category;
     }
-    
+
     if(passengerCount){
       query.passengerCount = {
         gte: +passengerCount,
