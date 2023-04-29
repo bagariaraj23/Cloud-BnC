@@ -38,12 +38,12 @@ const Home = async ({ searchParams }: HomeProps) => {
             gap-8
           "
         >
-          {listings.map((listing:any) => (
-              <ListingCard
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-              />
+          {listings.map((listing: any) => (
+            <ListingCard
+              currentUser={currentUser}
+              key={listing.id}
+              data={listing}
+            />
           ))}
         </div>
       </Container>
@@ -52,3 +52,5 @@ const Home = async ({ searchParams }: HomeProps) => {
 };
 
 export default Home;
+
+export const dynamic = "force-dynamic";

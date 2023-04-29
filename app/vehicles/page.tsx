@@ -10,12 +10,10 @@ const VehiclesPage = async () => {
 
   if (!currentUser) {
     return (
-      <ClientOnly>
         <EmptyState
           title="You are not logged in"
           subtitle="You must be logged in to view your trips"
         />
-      </ClientOnly>
     );
   }
   const listings = await getListings({
